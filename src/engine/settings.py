@@ -25,6 +25,10 @@ def load_settings():
 
     migrated = False
 
+    if not isinstance(data, dict):
+        save_settings(DEFAULT_SETTINGS)
+        return DEFAULT_SETTINGS.copy()
+
     # ---- MIGRATION LOGIC ----
 
     # Old installs: "hotkey" existed, but mode-specific ones didn’t
